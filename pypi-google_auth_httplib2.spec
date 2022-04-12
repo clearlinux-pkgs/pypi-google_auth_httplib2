@@ -4,7 +4,7 @@
 #
 Name     : pypi-google_auth_httplib2
 Version  : 0.1.0
-Release  : 27
+Release  : 28
 URL      : https://files.pythonhosted.org/packages/c6/b5/a9e956fd904ecb34ec9d297616fe98fa4106fc12f3b0a914dec983c267b9/google-auth-httplib2-0.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c6/b5/a9e956fd904ecb34ec9d297616fe98fa4106fc12f3b0a914dec983c267b9/google-auth-httplib2-0.1.0.tar.gz
 Summary  : Google Authentication Library: httplib2 transport
@@ -14,9 +14,6 @@ Requires: pypi-google_auth_httplib2-license = %{version}-%{release}
 Requires: pypi-google_auth_httplib2-python = %{version}-%{release}
 Requires: pypi-google_auth_httplib2-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-Provides: google-auth-httplib2
-Provides: google-auth-httplib2-python
-Provides: google-auth-httplib2-python3
 BuildRequires : pypi(google_auth)
 BuildRequires : pypi(httplib2)
 BuildRequires : pypi(six)
@@ -67,7 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641439454
+export SOURCE_DATE_EPOCH=1649752976
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
