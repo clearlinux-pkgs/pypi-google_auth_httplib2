@@ -4,7 +4,7 @@
 #
 Name     : pypi-google_auth_httplib2
 Version  : 0.1.0
-Release  : 36
+Release  : 37
 URL      : https://files.pythonhosted.org/packages/c6/b5/a9e956fd904ecb34ec9d297616fe98fa4106fc12f3b0a914dec983c267b9/google-auth-httplib2-0.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c6/b5/a9e956fd904ecb34ec9d297616fe98fa4106fc12f3b0a914dec983c267b9/google-auth-httplib2-0.1.0.tar.gz
 Summary  : Google Authentication Library: httplib2 transport
@@ -17,6 +17,9 @@ BuildRequires : buildreq-distutils3
 BuildRequires : pypi(google_auth)
 BuildRequires : pypi(httplib2)
 BuildRequires : pypi(six)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 ======================================
@@ -67,12 +70,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656402855
+export SOURCE_DATE_EPOCH=1672275735
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -89,7 +92,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-google_auth_httplib2
-cp %{_builddir}/google-auth-httplib2-0.1.0/LICENSE %{buildroot}/usr/share/package-licenses/pypi-google_auth_httplib2/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
+cp %{_builddir}/google-auth-httplib2-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-google_auth_httplib2/7df059597099bb7dcf25d2a9aedfaf4465f72d8d || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
