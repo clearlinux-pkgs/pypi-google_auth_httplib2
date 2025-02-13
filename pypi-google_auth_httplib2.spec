@@ -7,7 +7,7 @@
 #
 Name     : pypi-google_auth_httplib2
 Version  : 0.2.0
-Release  : 43
+Release  : 44
 URL      : https://files.pythonhosted.org/packages/56/be/217a598a818567b28e859ff087f347475c807a5649296fb5a817c58dacef/google-auth-httplib2-0.2.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/56/be/217a598a818567b28e859ff087f347475c807a5649296fb5a817c58dacef/google-auth-httplib2-0.2.0.tar.gz
 Summary  : Google Authentication Library: httplib2 transport
